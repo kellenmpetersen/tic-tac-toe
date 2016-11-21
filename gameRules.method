@@ -1,3 +1,5 @@
+//created by jackdubc
+
 private static int gameRules 
 {
 	System.out.println("------------------------------");
