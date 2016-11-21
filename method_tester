@@ -1,0 +1,20 @@
+/* 
+
+   name: TicTacToe
+   author: Pseupier Coders
+   date: 11/21/16
+   description: a simple game of tic-tac-toe
+
+*/
+
+public class Main{
+	public static void main(String[] args){
+        // the main method is the entry point for a program
+        // inside methods the statements get executed in the order they appear in the code
+		callmethod();
+    }
+	
+	private static void callmethod(){
+		System.out.println("This is where the method should be written");
+	}
+}
