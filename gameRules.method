@@ -12,7 +12,7 @@ private static int gameRules
 	System.out.println("If you pick an invalid column,");
 	System.out.println("(one that is full or non-existent),");
 	System.out.println("your will be asked to pick a new column.");
-	System.out.println("Lastly, the program will clear its self");
+	System.out.println("Lastly, the program will clear itself");
 	System.out.println("as you continue throughout the game");
 	System.out.println("so that your game space does not");
 	System.out.println("become over crowded.");
