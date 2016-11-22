@@ -15,7 +15,7 @@ public class Main{
 	static char[][]board = new char[WIDTH][HEIGHT];
 	
 	// the main method is the entry point for a program
-    // inside methods the statements get executed in the order they appear in the code
+    	// inside methods the statements get executed in the order they appear in the code
 	public static void main(String[] args){
 		//while (booleanexpression) {
 			gameRules();
