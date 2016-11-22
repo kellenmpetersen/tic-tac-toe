@@ -15,7 +15,7 @@ public static void userInput
      continue;
     
     } else {
-            System.out.println(" that didn't work, try entering 'yes or 'no' ");
+            System.out.println("the program will begin when you enter 'yes' ");
             static Scanner input = new Scanner(System.in);
            }
   
