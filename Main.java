@@ -7,6 +7,8 @@
 
 */
 
+import java.util.Scanner;
+
 public class Main{
 	
 	final static int WIDTH = 3;
@@ -15,7 +17,7 @@ public class Main{
 	static char[][]board = new char[WIDTH][HEIGHT];
 	
 	// the main method is the entry point for a program
-    	// inside methods the statements get executed in the order they appear in the code
+    // inside methods the statements get executed in the order they appear in the code
 	public static void main(String[] args){
 		//while (booleanexpression) {
 			gameRules();
@@ -48,9 +50,29 @@ public class Main{
 		System.out.println("------------------------------");
 	}
 	
-	private static void userInput(){
-		;
-	}
+	public static void userInput(){
+		String a;
+		int b;
+		int c; 
+  
+		System.out.println("Now that you know how to play, are you ready to begin?");
+		Scanner input = new Scanner(System.in);
+		//do some reasearch on Scanner method class thingy
+		a = keyboard.nextString();
+  
+		if (a == "yes"){
+			;
+		
+		}
+		else if(a == "no") {
+			System.out.println("the program will wait until you are ready to begin.");
+			Scanner input = new Scanner(System.in);
+		}
+		else {
+			System.out.println("that didn't work try entering 'yes or 'no' ");
+			Scanner input = new Scanner(System.in);
+		}
+}
 	private static void gameLogic(){
 		;
 	}
