@@ -1,14 +1,14 @@
 // created by Jack de la Motte
 
-public static void userInput 
+private static void userInput()
 {
-  char a;
+  String a;
   int b;
   int c; 
   
   System.out.println("Now that you know how to play, are you ready to begin?");
   static Scanner input = new Scanner(System.in);
-  a = keyboard.nextChar();
+  a = keyboard.nextString();
   
    if (a == "yes")
     {
