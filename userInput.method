@@ -1,0 +1,42 @@
+// created by Jack de la Motte
+
+public static void userInput 
+{
+  char a;
+  int b;
+  int c; 
+  
+  System.out.println("Now that you know how to play, are you ready to begin?");
+  static Scanner input = new Scanner(System.in);
+  a = keyboard.nextChar();
+  
+   if (a == "yes")
+    {
+     continue;
+    
+    } else {
+            System.out.println(" that didn't work, try entering 'yes or 'no' ");
+            static Scanner input = new Scanner(System.in);
+           }
+  
+  System.out.println("Enter a row number 1-3");
+  static Scanner input = new Scanner(System.in);
+  b = keyboard.nextInt();
+  
+    if (b == 1)
+    {
+    //place token in row 1
+    }
+    
+  System.out.println("Enter a column number 1-3");
+  static Scanner input = new Scanner(System.in);
+  c = keyboard.nextInt();
+  
+    if (c == 1)
+    {
+    //place token in column 1
+    }
+  
+  
+
+}
