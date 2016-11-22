@@ -14,10 +14,12 @@ public static void userInput
     {
      continue;
     
-    } else {
-            System.out.println("the program will begin when you enter 'yes' ");
+    } else (a == "no") {
+            System.out.println("the program will wait until you are ready to begin.");
             static Scanner input = new Scanner(System.in);
-           }
+           } else if  {
+                        System.out.println("that didn't work try entering 'yes or 'no' ");
+                      }
   
   System.out.println("Enter a row number 1-3");
   static Scanner input = new Scanner(System.in);
@@ -36,7 +38,5 @@ public static void userInput
     {
     //place token in column 1
     }
-  
-  
 
 }
