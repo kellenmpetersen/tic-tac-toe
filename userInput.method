@@ -19,6 +19,7 @@ public static void userInput
             static Scanner input = new Scanner(System.in);
            } else if  {
                         System.out.println("that didn't work try entering 'yes or 'no' ");
+                        static Scanner input = new Scanner(System.in);
                       }
   
   System.out.println("Enter a row number 1-3");
