@@ -50,29 +50,28 @@ public class Main{
 		System.out.println("------------------------------");
 	}
 	
-	public static void userInput(){
-		String a;
-		int b;
-		int c; 
+	public static void userInput1()
+	{
+		String a; 
   
-		System.out.println("Now that you know how to play, are you ready to begin?");
+		System.out.println("Now that you know how to play, are you ready to begin? (yes or no)");
 		Scanner input = new Scanner(System.in);
-		//do some reasearch on Scanner method class thingy
-		a = keyboard.nextString();
+		a = input.nextLine();
   
-		if (a == "yes"){
-			;
+		if (a.equals("yes")){
+			gameLogic();
 		
 		}
-		else if(a == "no") {
+		else if(a.equals("no")) {
 			System.out.println("the program will wait until you are ready to begin.");
-			Scanner input = new Scanner(System.in);
+			a = input.nextLine();
 		}
 		else {
-			System.out.println("that didn't work try entering 'yes or 'no' ");
-			Scanner input = new Scanner(System.in);
+			System.out.println("that didn't work try entering 'yes' or 'no' ");
+			a = input.nextLine();
 		}
-}
+	}
+	
 	private static void gameLogic(){
 		;
 	}
