@@ -116,16 +116,19 @@ public class Main{
 			if (a == 1)
 			{
 				column = 1;
+				break;
 			}
 		
 			if (a == 2)
 			{
 				column = 2;
+				break;
 			}
 		
 			if (a == 3)
 			{
 				column = 3;
+				break;
 			} else  {
 					System.out.println("that's not a vaild column, try entering a number 1-3");
 					a = input.nextInt();
