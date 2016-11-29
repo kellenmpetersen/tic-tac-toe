@@ -11,9 +11,13 @@ import java.util.Scanner;
 
 public class Main{
 	
-	final static int WIDTH = 3;
-	final static int HEIGHT = 3;
+	private final static int WIDTH = 3;
+	private final static int HEIGHT = 3;
 	
+	//if board space is blank
+	private final static int BLANK = 0;
+	
+	//board stores characters
 	static char[][]board = new char[WIDTH][HEIGHT];
 	
 	// the main method is the entry point for a program
@@ -23,6 +27,7 @@ public class Main{
 			gameRules();
 			userInput1();
 			userInput2();
+			setupBoard();
 			gameLogic();
 			checkWin();
 			gameAI();
@@ -110,10 +115,23 @@ public class Main{
 		}
 	}
 	
-	
-	private static void gameLogic(){
-		;
+	private static void setupBoard(){
+		for(int width=0; width < WIDTH; width++){
+			for(int height=0; height < HEIGHT; height++){
+				board[width][height]='-';
+			}
+		}	
 	}
+
+	private static void gameLogic(){
+		for(int width=0; width < WIDTH; width++){
+			for(int height=0; height < HEIGHT; height++){
+				System.out.print(board[width][height]);
+			}
+			System.out.println("");
+		}	
+	}
+	
 	private static void checkWin(){
 		;
 	}
