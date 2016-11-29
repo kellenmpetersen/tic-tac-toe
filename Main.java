@@ -56,16 +56,27 @@ public class Main{
 		System.out.println("------------------------------");
 	}
 	
+	// written by jack de la motte, the first of two user input methods used to 
 	public static boolean userInput1()
 	{
 		String a; 
+		// setting boolean used in while loop to false
+		
 		boolean flag = false;
 		
+		//prompting
 		System.out.println("Now that you know how to play, are you ready to begin? (yes or no)");
+		
+		//taking user's input
 		Scanner input = new Scanner(System.in);
+		
+		// initializing string 'a' variable to users input
 		a = input.nextLine();
   
+		// while loop used to continue prompting user until they are ready to play
 		while(flag == false){
+			
+			// set of if else statments to determine based off of user's input when they are ready to play
 			if (a.equals("yes")){
 				return true;
 			}
@@ -78,10 +89,11 @@ public class Main{
 				a = input.nextLine();
 			}
 		}
+		// when they enter yes it while break out of the loop and to this statement which by returning true ends the while loop
 		return true; 
 	}
-	
-	public static void userInput2() //method for inputting column and row for token placements
+	// written by jack de la motte, the second of two user input methods used to take user's input for column and row token placements
+	public static void userInput2() 
 	{
 		int a;
 		int b;
