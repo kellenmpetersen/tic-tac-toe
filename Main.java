@@ -184,8 +184,18 @@ public class Main{
 		}	
 	}
 	
-	private static void checkWin(){
-		;
+	
+	/*
+	Author: JC & KP
+	Purpose: checksWin
+	Inputs: none
+	Outputs: int of who won
+	*/
+	
+	private static int checkWin(){
+		//for loop that checks across all columns if players tokens match
+		//for loop that checks across all rows if players token match
+		//nested for loop that checks diagonals. (two)
 	}
 	private static void gameAI(){
 		;
