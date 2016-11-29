@@ -1,43 +1,110 @@
-// created by Jack de la Motte
-
-private static void userInput()
-{
-  String a;
-  int b;
-  int c; 
+//the first of two user input methods used to take user's starting input
+	// written by jack de la motte
+	// inputs: ready to begin, not ready to begin
+	// outputs: gamerules, waiting for user to be ready to begin 
+	public static boolean userInput1()
+	{
+		String a; 
+		// setting boolean used in while loop to false
+		
+		boolean flag = false;
+		
+		//prompting
+		System.out.println("Now that you know how to play, are you ready to begin? (yes or no)");
+		
+		//taking user's input
+		Scanner input = new Scanner(System.in);
+		
+		// initializing string 'a' variable to users input
+		a = input.nextLine();
   
-  System.out.println("Now that you know how to play, are you ready to begin?");
-  Scanner input = new Scanner(System.in);
-  a = keyboard.nextString();
-  
-   if (a == "yes")
-    {
-     continue;
-    
-    } else if (a == "no") {
-            System.out.println("the program will wait until you are ready to begin.");
-            Scanner input = new Scanner(System.in);
-           } else {
-                        System.out.println("that didn't work try entering 'yes or 'no' ");
-                        Scanner input = new Scanner(System.in);
-                      }
-  
-  System.out.println("Enter a row number 1-3");
-  Scanner input = new Scanner(System.in);
-  b = keyboard.nextInt();
-  
-    if (b == 1)
-    {
-    //place token in row 1
-    }
-    
-  System.out.println("Enter a column number 1-3");
-  Scanner input = new Scanner(System.in);
-  c = keyboard.nextInt();
-  
-    if (c == 1)
-    {
-    //place token in column 1
-    }
-
-}
+		// while loop used to continue prompting user until they are ready to play
+		while(flag == false){
+			
+			// set of if else statments to determine based off of user's input when they are ready to play
+			if (a.equals("yes")){
+				return true;
+			}
+			else if(a.equals("no")) {
+				System.out.println("enter 'yes' when you are ready to begin.");
+				a = input.nextLine();
+			}
+			else {
+				System.out.println("that didn't work try entering 'yes' or 'no' ");
+				a = input.nextLine();
+			}
+		}
+		// when they enter yes it while break out of the loop and to this statement which by returning true ends the while loop
+		return true; 
+	}
+	// written by jack de la motte, the second of two user input methods used to take user's input for column and row token placements
+	public static void userInput2() 
+	{
+		int a;
+		int b;
+		int column;
+		int row;
+		
+		System.out.println("enter a column in which you would like to place your location (1-3)");
+		Scanner input = new Scanner(System.in);
+		
+		a = input.nextInt();
+		
+		boolean flag = false;
+		
+		while(flag == false)
+		{
+			if (a == 1)
+			{
+				column = 1;
+				break;
+			}
+		
+			if (a == 2)
+			{
+				column = 2;
+				break;
+			}
+		
+			if (a == 3)
+			{
+				column = 3;
+				break;
+			} else  {
+					System.out.println("that's not a vaild column, try entering a number 1-3");
+					a = input.nextInt();
+					return;
+				}
+		}
+		
+		System.out.println("enter a row in which you would like to place your location (1-3)");
+		
+		a = input.nextInt();
+		
+		
+		
+		while(flag == false)
+		{
+			if (a == 1)
+			{
+				row = 1;
+				break;
+			}
+		
+			if (a == 2)
+			{
+				row = 2;
+				break;
+			}
+		
+			if (a == 3)
+			{
+				row = 3;
+				break;
+			} else  {
+					System.out.println("that's not a vaild column, try entering a number 1-3");
+					a = input.nextInt();
+					return;
+				}
+		}
+	}
