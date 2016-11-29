@@ -22,7 +22,7 @@ public class Main{
 	static char[][]board = new char[WIDTH][HEIGHT];
 	
 	// the main method is the entry point for a program
-    // inside methods the statements get executed in the order they appear in the code
+    	// inside methods the statements get executed in the order they appear in the code
 	public static void main(String[] args){
 		//while (booleanexpression) {
 			gameRules();
@@ -40,6 +40,12 @@ public class Main{
 			displayBoard();
 		//}
     }
+	/*
+	Author: JC
+	Purpose: Instructions
+	Inputs: none
+	Outputs: Instructions
+	*/
 	
 	private static void gameRules(){
 		System.out.println("------------------------------");
@@ -67,11 +73,9 @@ public class Main{
 	Outputs: columns, and rows
 	*/
 	
-	private static void userInput(int column, int row)
+	private static void userInput()
 	{
-		
 		String response;
-		int iresponse;
 		boolean flag = false;
 		
 		//prompting
@@ -94,9 +98,14 @@ public class Main{
 				flag=false;
 			}
 		}
+	}
+	
+	private static int userInputColumn(){
+		int iresponse;
+		boolean flag = false;
 		
-		flag = false;
-		
+		Scanner input = new Scanner(System.in);
+			
 		System.out.println("enter a column in which you would like to place your location (1-3)");
 		
 		while(flag == false){
@@ -118,10 +127,17 @@ public class Main{
 			}
 		}
 		
-		flag = false;
+		return column;
+	}
+	
+	private static int userInputRow(){
+		int iresponse;
+		boolean flag = false;
+		
+		Scanner input = new Scanner(System.in);
 		
 		System.out.println("enter a row in which you would like to place your location (1-3)");
-		
+				
 		while(flag == false){
 			while (!input.hasNextInt()) {
 				//tell user to enter in an integer value, and give them a chance to do so. Repeat as many times as nessacary until they do.	
@@ -140,13 +156,6 @@ public class Main{
 				flag=false;
 			}
 		}
-	}
-	
-	private static int userInputColumn(){
-		
-		return column;
-	}
-	private static int userInputRow(){
 		
 		return row;
 	}
@@ -189,5 +198,6 @@ public class Main{
 	}
 	private static void displayBoard(){
 		;
+		//see ABOVE
 	}
 }
