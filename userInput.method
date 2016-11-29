@@ -2,9 +2,9 @@
 	// written by jack de la motte
 	// inputs: ready to begin, not ready to begin
 	// outputs: gamerules, waiting for user to be ready to begin 
-	public static boolean userInput1()
+	private static boolean userInput1()
 	{
-		String a; 
+		String response; 
 		// setting boolean used in while loop to false
 		
 		boolean flag = false;
@@ -15,23 +15,23 @@
 		//taking user's input
 		Scanner input = new Scanner(System.in);
 		
-		// initializing string 'a' variable to users input
-		a = input.nextLine();
+		// initializing string 'response' variable to users input
+		response = input.nextLine();
   
 		// while loop used to continue prompting user until they are ready to play
 		while(flag == false){
 			
 			// set of if else statments to determine based off of user's input when they are ready to play
-			if (a.equals("yes")){
+			if (response.equals("yes")){
 				return true;
 			}
-			else if(a.equals("no")) {
+			else if(response.equals("no")) {
 				System.out.println("enter 'yes' when you are ready to begin.");
-				a = input.nextLine();
+				response = input.nextLine();
 			}
 			else {
 				System.out.println("that didn't work try entering 'yes' or 'no' ");
-				a = input.nextLine();
+				response = input.nextLine();
 			}
 		}
 		// when they enter yes it while break out of the loop and to this statement which by returning true ends the while loop
@@ -40,7 +40,7 @@
 	// written by jack de la motte, the second of two user input methods used to take user's input for column and row token placements
 	public static void userInput2() 
 	{
-		int a;
+		int response;
 		int b;
 		int column;
 		int row;
@@ -48,62 +48,62 @@
 		System.out.println("enter a column in which you would like to place your location (1-3)");
 		Scanner input = new Scanner(System.in);
 		
-		a = input.nextInt();
+		response = input.nextInt();
 		
 		boolean flag = false;
 		
 		while(flag == false)
 		{
-			if (a == 1)
+			if (response == 1)
 			{
 				column = 1;
 				break;
 			}
 		
-			if (a == 2)
+			if (response == 2)
 			{
 				column = 2;
 				break;
 			}
 		
-			if (a == 3)
+			if (response == 3)
 			{
 				column = 3;
 				break;
 			} else  {
 					System.out.println("that's not a vaild column, try entering a number 1-3");
-					a = input.nextInt();
+					response = input.nextInt();
 					return;
 				}
 		}
 		
 		System.out.println("enter a row in which you would like to place your location (1-3)");
 		
-		a = input.nextInt();
+		response = input.nextInt();
 		
 		
 		
 		while(flag == false)
 		{
-			if (a == 1)
+			if (response == 1)
 			{
 				row = 1;
 				break;
 			}
 		
-			if (a == 2)
+			if (response == 2)
 			{
 				row = 2;
 				break;
 			}
 		
-			if (a == 3)
+			if (response == 3)
 			{
 				row = 3;
 				break;
 			} else  {
 					System.out.println("that's not a vaild column, try entering a number 1-3");
-					a = input.nextInt();
+					response = input.nextInt();
 					return;
 				}
 		}
