@@ -59,7 +59,7 @@ public class Main{
 	//the first of two user input methods used to take user's starting input
 	// written by jack de la motte
 	// inputs: ready to begin, not ready to begin
-	// outputs: gamerules, waiting for user to be ready to begin
+	// outputs: gamerules, waiting for user to be ready to begin 
 	public static boolean userInput1()
 	{
 		String a; 
@@ -88,17 +88,14 @@ public class Main{
 				a = input.nextLine();
 			}
 			else {
-				System.out.println("that didn't work, try entering 'yes' or 'no' ");
+				System.out.println("that didn't work try entering 'yes' or 'no' ");
 				a = input.nextLine();
 			}
 		}
 		// when they enter yes it while break out of the loop and to this statement which by returning true ends the while loop
 		return true; 
 	}
-	// the second of two user input methods used to take user's input for column and row token placements
-	// written by jack de la motte
-	// inputs: 
-	// outputs: 
+	// written by jack de la motte, the second of two user input methods used to take user's input for column and row token placements
 	public static void userInput2() 
 	{
 		int a;
@@ -106,11 +103,13 @@ public class Main{
 		int column;
 		int row;
 		
-		System.out.println("enter a column in which you would like to place your token (1-3)");
+		System.out.println("enter a column in which you would like to place your location (1-3)");
 		Scanner input = new Scanner(System.in);
 		
 		a = input.nextInt();
+		
 		boolean flag = false;
+		
 		while(flag == false)
 		{
 			if (a == 1)
@@ -128,6 +127,37 @@ public class Main{
 			if (a == 3)
 			{
 				column = 3;
+				break;
+			} else  {
+					System.out.println("that's not a vaild column, try entering a number 1-3");
+					a = input.nextInt();
+					return;
+				}
+		}
+		
+		System.out.println("enter a row in which you would like to place your location (1-3)");
+		
+		a = input.nextInt();
+		
+		
+		
+		while(flag == false)
+		{
+			if (a == 1)
+			{
+				row = 1;
+				break;
+			}
+		
+			if (a == 2)
+			{
+				row = 2;
+				break;
+			}
+		
+			if (a == 3)
+			{
+				row = 3;
 				break;
 			} else  {
 					System.out.println("that's not a vaild column, try entering a number 1-3");
