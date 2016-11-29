@@ -75,6 +75,7 @@ public class Main{
 			}
 			else {
 				System.out.println("that didn't work try entering 'yes' or 'no' ");
+				a = input.nextLine();
 			}
 		}
 		return true; 
@@ -91,7 +92,7 @@ public class Main{
 		Scanner input = new Scanner(System.in);
 		
 		a = input.nextInt();
-		
+		boolean flag = false;
 		while(flag == false)
 		{
 			if (a == 1)
