@@ -13,6 +13,7 @@ public class Main{
 	
 	private final static int WIDTH = 3;
 	private final static int HEIGHT = 3;
+	private static int column = 0, row = 0;
 	
 	//if board space is blank
 	private final static int BLANK = 0;
@@ -56,115 +57,95 @@ public class Main{
 		System.out.println("------------------------------");
 	}
 	
-	//the first of two user input methods used to take user's starting input
-	// written by jack de la motte
-	// inputs: ready to begin, not ready to begin
-	// outputs: gamerules, waiting for user to be ready to begin 
-	public static boolean userInput1()
+	/*
+	Author: JD
+	Purpose: Gets users input on rows and columns
+	Inputs: columns, and rows
+	Outputs: columns, and rows
+	*/
+	
+	private static void userInput(int column, int row)
 	{
-		String a; 
-		// setting boolean used in while loop to false
 		
+		String response;
+		int iresponse;
 		boolean flag = false;
 		
 		//prompting
 		System.out.println("Now that you know how to play, are you ready to begin? (yes or no)");
-		
-		//taking user's input
 		Scanner input = new Scanner(System.in);
-		
-		// initializing string 'a' variable to users input
-		a = input.nextLine();
   
 		// while loop used to continue prompting user until they are ready to play
 		while(flag == false){
-			
+			response = input.nextLine();
 			// set of if else statments to determine based off of user's input when they are ready to play
-			if (a.equals("yes")){
-				return true;
+			if (response.equals("yes")){
+				flag=true;
 			}
-			else if(a.equals("no")) {
+			else if(response.equals("no")) {
 				System.out.println("enter 'yes' when you are ready to begin.");
-				a = input.nextLine();
+				flag=false;
 			}
 			else {
 				System.out.println("that didn't work try entering 'yes' or 'no' ");
-				a = input.nextLine();
+				flag=false;
 			}
 		}
-		// when they enter yes it while break out of the loop and to this statement which by returning true ends the while loop
-		return true; 
-	}
-	// written by jack de la motte, the second of two user input methods used to take user's input for column and row token placements
-	public static void userInput2() 
-	{
-		int a;
-		int b;
-		int column;
-		int row;
+		
+		flag = false;
 		
 		System.out.println("enter a column in which you would like to place your location (1-3)");
-		Scanner input = new Scanner(System.in);
 		
-		a = input.nextInt();
-		
-		boolean flag = false;
-		
-		while(flag == false)
-		{
-			if (a == 1)
-			{
-				column = 1;
-				break;
+		while(flag == false){
+			while (!input.hasNextInt()) {
+				//tell user to enter in an integer value, and give them a chance to do so. Repeat as many times as nessacary until they do.	
+				System.out.println("Enter an integer, please!");
+				input.nextLine();
 			}
-		
-			if (a == 2)
-			{
-				column = 2;
-				break;
+			
+			iresponse = input.nextInt();
+			
+			if (iresponse < 4 && iresponse > 0){
+				column = iresponse;
+				flag=true;
 			}
-		
-			if (a == 3)
-			{
-				column = 3;
-				break;
-			} else  {
-					System.out.println("that's not a vaild column, try entering a number 1-3");
-					a = input.nextInt();
-					return;
-				}
+			else  {
+				System.out.println("that's not a vaild column, try entering a number 1-3");
+				flag=false;
+			}
 		}
+		
+		flag = false;
 		
 		System.out.println("enter a row in which you would like to place your location (1-3)");
 		
-		a = input.nextInt();
-		
-		
-		
-		while(flag == false)
-		{
-			if (a == 1)
-			{
-				row = 1;
-				break;
+		while(flag == false){
+			while (!input.hasNextInt()) {
+				//tell user to enter in an integer value, and give them a chance to do so. Repeat as many times as nessacary until they do.	
+				System.out.println("Enter an integer, please!");
+				input.nextLine();
 			}
-		
-			if (a == 2)
-			{
-				row = 2;
-				break;
+			
+			iresponse = input.nextInt();
+			
+			if (iresponse < 4 && iresponse > 0){
+				row = iresponse;
+				flag=true;
 			}
-		
-			if (a == 3)
-			{
-				row = 3;
-				break;
-			} else  {
-					System.out.println("that's not a vaild column, try entering a number 1-3");
-					a = input.nextInt();
-					return;
-				}
+			else  {
+				System.out.println("that's not a vaild row, try entering a number 1-3");
+				flag=false;
+			}
 		}
+	}
+	
+	private static int userInputColumn(){
+		
+		return column;
+	}
+	private static int userInputRow(){
+		
+		return row;
 	}
 	
 	private static void setupBoard(){
