@@ -26,8 +26,11 @@ public class Main{
 	public static void main(String[] args){
 		//while (booleanexpression) {
 			gameRules();
-			userInput1();
-			userInput2();
+			userInput();
+			userInputColumn(column);
+			userInputRow(row);
+			System.out.println(column);
+			System.out.println(row);
 			setupBoard();
 			gameLogic();
 			checkWin();
