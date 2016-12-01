@@ -16,15 +16,17 @@ public class Main{
 	//if board space is blank
 	private final static int BLANK = 0;
 	
+	//turn vaiable (array?) = 9
+	
 	//board stores characters
 	static char[][]board = new char[WIDTH][HEIGHT];
 	
 	// the main method is the entry point for a program
     	// inside methods the statements get executed in the order they appear in the code
 	public static void main(String[] args){
-		//while (booleanexpression) {
 			gameRules();
 			userInput();
+		//while (booleanexpression) {
 			userInputColumn();
 			userInputRow();
 			System.out.println(column);
@@ -34,7 +36,6 @@ public class Main{
 			checkWin();
 			gameAI();
 			checkWin();
-			clearBoard();
 			displayBoard();
 		//}
     }
@@ -164,38 +165,54 @@ public class Main{
 			}
 		}	
 	}
-
+	
+	/*
+	Author: KP
+	Purpose: gameLogic
+	Inputs: column, row
+	Outputs: int of who won
+	*/
+	
 	private static void gameLogic(){
+		;
+	}
+	
+	
+	/*
+	Author: JC & KP
+	Purpose: checksWin using last entered input
+	Inputs: none
+	Outputs: int of who won
+	*/
+	
+	private static void checkWin(){
+		;
+	}
+	
+		/*
+	Author: JC & KP
+	Purpose: gameAI trys to win
+	Inputs: turn
+	Outputs: gameAI column and row
+	*/
+	
+	private static void gameAI(){
+		;
+	}
+	
+	/*
+	Author: KP
+	Purpose: displays "board" array visually
+	Inputs: none
+	Outputs: "board" array
+	*/
+	
+	private static void displayBoard(){
 		for(int width=0; width < WIDTH; width++){
 			for(int height=0; height < HEIGHT; height++){
 				System.out.print(board[width][height]);
 			}
 			System.out.println("");
 		}	
-	}
-	
-	
-	/*
-	Author: JC & KP
-	Purpose: checksWin
-	Inputs: none
-	Outputs: int of who won
-	*/
-	
-	private static void checkWin(){
-		//for loop that checks across all columns if players tokens match
-		//for loop that checks across all rows if players token match
-		//nested for loop that checks diagonals. (two)
-		;
-	}
-	private static void gameAI(){
-		;
-	}
-	private static void clearBoard(){
-		;
-	}
-	private static void displayBoard(){
-		;
-		//see ABOVE
 	}
 }
