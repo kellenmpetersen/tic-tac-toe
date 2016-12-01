@@ -1,10 +1,8 @@
 /* 
-
    name: TicTacToe
    author: Pseupier Coders
    date: 11/22/16
    description: a simple game of tic-tac-toe
-
 */
 
 import java.util.Scanner;
@@ -27,8 +25,8 @@ public class Main{
 		//while (booleanexpression) {
 			gameRules();
 			userInput();
-			userInputColumn(column);
-			userInputRow(row);
+			userInputColumn();
+			userInputRow();
 			System.out.println(column);
 			System.out.println(row);
 			setupBoard();
@@ -73,8 +71,7 @@ public class Main{
 	Outputs: columns, and rows
 	*/
 	
-	private static void userInput()
-	{
+	private static void userInput(){
 		String response;
 		boolean flag = false;
 		
@@ -185,10 +182,11 @@ public class Main{
 	Outputs: int of who won
 	*/
 	
-	private static int checkWin(){
+	private static void checkWin(){
 		//for loop that checks across all columns if players tokens match
 		//for loop that checks across all rows if players token match
 		//nested for loop that checks diagonals. (two)
+		;
 	}
 	private static void gameAI(){
 		;
