@@ -12,6 +12,7 @@ public class Main{
 	private final static int WIDTH = 3;
 	private final static int HEIGHT = 3;
 	private static int column = 0, row = 0;
+	private static char token = 'x'; 
 	
 	//if board space is blank
 	private final static int BLANK = 0;
@@ -27,6 +28,7 @@ public class Main{
 			gameRules();
 			setupBoard();
 			userInput();
+			userInputToken();
 			userInputColumn();
 			userInputRow();
 			gameLogic(column,row);
@@ -95,6 +97,33 @@ public class Main{
 		}
 	}
 	
+		private static void userInputToken(){
+			String response;
+			boolean letter = false;
+			
+			//prompting
+			System.out.println("Please choose a token, token x or token o");
+			Scanner input = new Scanner(System.in);
+  
+			while(letter == false){
+				response = input.nextLine();
+				// set of if else statments to determine based off of user's input when they are ready to play
+				if (response.equals("x")){
+					System.out.println("You selected token X");
+					letter=true;
+				}
+				else if(response.equals("o")) {
+				System.out.println("You selected token O");
+				letter=true;
+				}
+				else {
+				System.out.println("that didn't work try entering 'x' or 'o' ");
+				letter=false;
+			}
+		}
+	}
+	
+
 	private static int userInputColumn(){
 		int iresponse;
 		boolean flag = false;
