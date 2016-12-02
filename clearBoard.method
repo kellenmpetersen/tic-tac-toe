@@ -1,0 +1,8 @@
+private static void clearBoard(){
+	for (int WIDTH=0; WIDTH<3; WIDTH++){
+			for (int LENGTH=0; LENGTH<3; LENGTH++)
+				{board[WIDTH][LENGTH]=BLANK;
+			}
+			
+		}	
+	}
