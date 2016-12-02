@@ -2,25 +2,26 @@ private static char token = x;
 
 private static void userInput(){
 		String response;
-		boolean flag = false;
+		boolean letter = false;
 		
 		//prompting
 		System.out.println("Please choose a token, token x or token o (x or o)");
 		Scanner input = new Scanner(System.in);
   
-		while(flag == false){
+		while(letter == false){
 			response = input.nextLine();
 			// set of if else statments to determine based off of user's input when they are ready to play
 			if (response.equals("x")){
-				flag=true;
+				System.out.println("You selected token "X" ");
+				letter=true;
 			}
 			else if(response.equals("o")) {
-				System.out.println("enter 'yes' when you are ready to begin.");
-				flag=false;
+				System.out.println("You selected token "O" ");
+				letter=true;
 			}
 			else {
 				System.out.println("that didn't work try entering 'x' or 'o' ");
-				flag=false;
+				letter=false;
 			}
 		}
 	}
