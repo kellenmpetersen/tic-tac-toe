@@ -25,14 +25,11 @@ public class Main{
     	// inside methods the statements get executed in the order they appear in the code
 	public static void main(String[] args){
 			gameRules();
+			setupBoard();
 			userInput();
-		//while (booleanexpression) {
 			userInputColumn();
 			userInputRow();
-			System.out.println(column);
-			System.out.println(row);
-			setupBoard();
-			gameLogic();
+			gameLogic(column,row);
 			checkWin();
 			gameAI();
 			checkWin();
@@ -41,7 +38,7 @@ public class Main{
     }
 	/*
 	Author: JC
-	Purpose: Instructions
+	Purpose: Prints Instructions
 	Inputs: none
 	Outputs: Instructions
 	*/
@@ -158,6 +155,13 @@ public class Main{
 		return row;
 	}
 	
+	/*
+	Author: KP
+	Purpose: sets board with default parameters
+	Inputs: none
+	Outputs: none
+	*/
+	
 	private static void setupBoard(){
 		for(int width=0; width < WIDTH; width++){
 			for(int height=0; height < HEIGHT; height++){
@@ -167,16 +171,26 @@ public class Main{
 	}
 	
 	/*
-	Author: KP
+	Author: KP & JD
 	Purpose: gameLogic
 	Inputs: column, row
-	Outputs: int of who won
+	Outputs: postion of players token
 	*/
 	
-	private static void gameLogic(){
-		;
+	private static void gameLogic(int column, int row){
+		board[column-1][row-1]='x';
 	}
 	
+	/*
+	Author: JC & KP
+	Purpose: gameAI trys to win
+	Inputs: turn
+	Outputs: gameAI column and row
+	*/
+	
+	private static void gameAI(){
+		;
+	}
 	
 	/*
 	Author: JC & KP
@@ -186,17 +200,6 @@ public class Main{
 	*/
 	
 	private static void checkWin(){
-		;
-	}
-	
-		/*
-	Author: JC & KP
-	Purpose: gameAI trys to win
-	Inputs: turn
-	Outputs: gameAI column and row
-	*/
-	
-	private static void gameAI(){
 		;
 	}
 	
