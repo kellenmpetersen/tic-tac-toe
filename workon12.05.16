@@ -28,14 +28,15 @@ public class Main{
 			gameRules();
 			setupBoard();
 			userInput();
-			userInputColumn();
-			userInputRow();
-			turn=turn+1;
-			gameLogic(column,row);
-			checkWin();
-			gameAI(column,row);
-			checkWin();
-			displayBoard();
+			for(int turn=0; turn<9; turn++){
+				userInputColumn();
+				userInputRow();
+				gameLogic(column,row);
+				checkWin(column,row);
+				gameAI(column,row);
+				//checkWin(column,row);
+				displayBoard();
+			}
     }
 	
 	/*
@@ -229,8 +230,16 @@ public class Main{
 	Outputs: int of who won
 	*/
 	
-	private static void checkWin(){
-		;
+	private static void checkWin(int column, int row){
+		for(int i = 0;  i<board.length; i++){
+			System.out.println("before board");
+			if(board[column][i] != board[column][row]){
+				System.out.println("no win for column");
+				if (i==board.length-1){
+					System.out.println("win for column");
+				}
+			}
+		}
 	}
 	
 	/*
