@@ -1,16 +1,21 @@
-/*
-Author: JC
-Purpose: Prints Instructions
-Inputs: none
-Outputs: Instructions
-*/
+	/*
+	Author: JC
+	Purpose: Prints Instructions
+	Inputs: none
+	Outputs: Instructions
+	*/
 	
-private static void gameRules(){
-	System.out.println("------------------------------");
-	System.out.println("Tic Tac Toe Game Rules:");
-	System.out.println("In order to win, you must connect 3 x's or o's vertically, horizontally, or diagonally.");
-	System.out.println(" You, the user, are given the choice of 'X' or 'O' for your your symbol.");
-	System.out.println("If you pick an invalid column, one that is full or non-existent you will be asked to pick a new column.");
-	System.out.println("That's all, enjoy the game!");
-	System.out.println("------------------------------");
-}
+	private static void gameRules(){
+		System.out.println("------------------------------");
+		System.out.println("Tic Tac Toe Game Rules:");
+		System.out.println("");
+		System.out.println("In order to win, you must connect 3 x's or o's vertically, horizontally, or diagonally.");
+		System.out.println("");
+		System.out.println("You, the user, are given the choice of 'X' or 'O' for your symbol.");
+		System.out.println("");
+		System.out.println("If you pick an invalid column, one that is full or non-existent you will be asked to pick a new column.");
+		System.out.println("");
+		System.out.println("That's all, enjoy the game!");
+		System.out.println("");
+		System.out.println("------------------------------");
+	}
