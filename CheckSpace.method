@@ -1,0 +1,19 @@
+/*
+Author: Jack de la Motte
+Purpose: check if space is open or if it already has a token.
+Inputs: column, row
+outputs: if space is available
+*/
+private static void CheckSpace(int column, int row)
+{
+		if(board[column-1][i-1] = '-')
+    {
+     continue;
+    }
+    //---------
+    else(board[column-1][i-1] != '-')
+    {
+     System.out.println("This is not a valid column.");
+    }
+    //---------
+	}
