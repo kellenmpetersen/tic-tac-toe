@@ -14,6 +14,7 @@ public class Main{
 	private static int column = 0, row = 0;
 	private static char token = 'x';	
 	private static int turn = 0, win = 0;
+	private static boolean input = false;
 	
 	//board stores characters
 	static char[][]board = new char[WIDTH][HEIGHT];
@@ -26,8 +27,11 @@ public class Main{
 		userInput();	
 		userInputToken(token);
 		for(int turn=1; turn<10; turn++){
-			userInputColumn();
-			userInputRow();
+			while(input==false){
+				userInputColumn();
+				userInputRow();
+				checkSpace();
+			}
 			gameLogic(column,row,token);
 			win = checkWin(column,row);
 			//gameAI(column,row);
@@ -176,6 +180,24 @@ public class Main{
 		return row;
 	}
 	
+	/*
+	Author: JD & KP
+	Purpose: checks to see if Space is filled
+	Inputs: column, row
+	Outputs: input
+	Returns: none
+	*/
+	
+	private static void checkSpace(int column, int row){
+		if(board[column-1][row-1] == '-'){
+			input==true;
+		}
+		else{
+			System.out.println("This space has already been selected!");
+			input==false;
+		}
+	}
+		
 	/*
 	Author: KP
 	Purpose: sets board with default parameters
