@@ -1,7 +1,7 @@
 /* 
    name: TicTacToe
    author: Pseupier Coders
-   date: 11/22/16
+   date: 11/22/16 - 12/7/16
    description: a simple game of tic-tac-toe
 */
 
@@ -12,12 +12,8 @@ public class Main{
 	private final static int WIDTH = 3;
 	private final static int HEIGHT = 3;
 	private static int column = 0, row = 0;
-	private static char token = 'x'; 
-	
-	//if board space is blank
-	private final static int BLANK = 0;
-	
-	//turn vaiable (array?) = 9
+	private static char token = 'x';	
+	private static int turn = 0;
 	
 	//board stores characters
 	static char[][]board = new char[WIDTH][HEIGHT];
@@ -25,24 +21,27 @@ public class Main{
 	// the main method is the entry point for a program
     	// inside methods the statements get executed in the order they appear in the code
 	public static void main(String[] args){
-			gameRules();
-			setupBoard();
-			userInput();
-			userInputToken();
+		gameRules();
+		setupBoard();
+		userInput();	
+		userInputToken(token);
+		for(int turn=1; turn<10; turn++{
 			userInputColumn();
 			userInputRow();
-			gameLogic(column,row);
-			checkWin();
-			gameAI();
-			checkWin();
+			gameLogic(column,row,token);
+			checkWin(column,row);
+			//gameAI(column,row);
+			//checkWin(column,row);
 			displayBoard();
-		//}
-    }
+		}
+    	}
+	
 	/*
 	Author: JC
 	Purpose: Prints Instructions
 	Inputs: none
 	Outputs: Instructions
+	Returns: none
 	*/
 	
 	private static void gameRules(){
@@ -66,9 +65,10 @@ public class Main{
 	
 	/*
 	Author: JD
-	Purpose: Gets users input on rows and columns
-	Inputs: columns, and rows
-	Outputs: columns, and rows
+	Purpose: Asks if user is ready to begin, if not ready, then waits.
+	Inputs: none
+	Outputs: none
+	Returns: none
 	*/
 	
 	private static void userInput(){
@@ -97,25 +97,27 @@ public class Main{
 		}
 	}
 	
-		private static void userInputToken(){
-			String response;
-			boolean letter = false;
+	private static void userInputToken(char token){
+		String response;
+		boolean letter = false;
 			
-			//prompting
-			System.out.println("Please choose a token, token x or token o");
-			Scanner input = new Scanner(System.in);
+		//prompting
+		System.out.println("Please choose a token, token x or token o");
+		Scanner input = new Scanner(System.in);
   
-			while(letter == false){
-				response = input.nextLine();
-				// set of if else statments to determine based off of user's input when they are ready to play
-				if (response.equals("x")){
-					System.out.println("You selected token X");
-					letter=true;
-				}
-				else if(response.equals("o")) {
-				System.out.println("You selected token O");
+		while(letter == false){
+			response = input.nextLine();
+			// set of if else statments to determine based off of user's input when they are ready to play
+			if (response.equals("x")){
+				System.out.println("You selected token x");
+				token = 'x'
 				letter=true;
-				}
+			}
+			else if(response.equals("o")) {
+				System.out.println("You selected token o");
+				token = 'o'
+				letter=true;
+			}
 				else {
 				System.out.println("that didn't work try entering 'x' or 'o' ");
 				letter=false;
@@ -202,12 +204,12 @@ public class Main{
 	/*
 	Author: KP & JD
 	Purpose: gameLogic
-	Inputs: column, row
+	Inputs: column, row, token
 	Outputs: postion of players token
 	*/
 	
-	private static void gameLogic(int column, int row){
-		board[column-1][row-1]='x';
+	private static void gameLogic(int column, int row, char token){
+		board[column-1][row-1]=token;
 	}
 	
 	/*
@@ -228,8 +230,59 @@ public class Main{
 	Outputs: int of who won
 	*/
 	
-	private static void checkWin(){
-		;
+	private static void checkWin(int column, int row){
+		for(int i = 1;  i<4; i++){
+			if(board[column-1][i-1] != board[column-1][row-1]){
+				System.out.println("no win for column");
+				break;
+			}
+			else if (i==board.length){
+				System.out.println("win for column");
+				break;
+			}
+		}
+
+		for(int i=1; i<4; i++){
+			if(board[i-1][row-1] != board[column-1][row-1]){
+				System.out.println("no win for row");
+				break;
+			}
+			else if (i==board.length){
+				System.out.println("win for row");
+				break;
+			}
+		}
+
+        	if(row == column){
+           		for(int i = 1; i <4; i++){
+                		if(board[i-1][i-1] != board[column-1][row-1]){
+                  			System.out.println("no win for diagonal");
+                    			break;
+                		}
+               			else if(i-1 == WIDTH-1){
+                    			System.out.println("win for diagonal");
+                    			break;
+                		}
+            		}
+        	}
+
+        	if((column-1) + (row-1) == (WIDTH-1)){
+            		for(int i = 1; i < 4; i++){
+                		if(board[i-1][(WIDTH-1)-(i-1)] != board[column-1][row-1]){
+                    			System.out.println("no win for anti-dia");
+                    			break;
+                		}
+               			else if(i == (WIDTH-1)){
+                    			System.out.println("win for anti-dia");
+                    			break;
+                		}
+            		}
+        	}
+
+        	if(turn == 9){
+        		System.out.println("DRAW");
+        	}
+
 	}
 	
 	/*
