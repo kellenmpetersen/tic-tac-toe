@@ -13,7 +13,7 @@ public class Main{
 	private final static int HEIGHT = 3;
 	private static int column = 0, row = 0;
 	private static char token = 'x';	
-	private static int turn = 0;
+	private static int turn = 0, win = 0;
 	
 	//board stores characters
 	static char[][]board = new char[WIDTH][HEIGHT];
@@ -29,12 +29,12 @@ public class Main{
 			userInputColumn();
 			userInputRow();
 			gameLogic(column,row,token);
-			checkWin(column,row);
+			win = checkWin(column,row);
 			//gameAI(column,row);
 			//checkWin(column,row);
 			displayBoard();
 		}
-    	}
+	}
 	
 	/*
 	Author: JC
@@ -196,6 +196,7 @@ public class Main{
 	Purpose: gameLogic
 	Inputs: column, row, token
 	Outputs: postion of players token
+	Returns: none
 	*/
 	
 	private static void gameLogic(int column, int row, char token){
@@ -207,6 +208,7 @@ public class Main{
 	Purpose: gameAI trys to win
 	Inputs: turn
 	Outputs: gameAI column and row
+	Returns: none
 	*/
 	
 	private static void gameAI(){
@@ -218,61 +220,60 @@ public class Main{
 	Purpose: checksWin using last entered input
 	Inputs: none
 	Outputs: int of who won
+	Returns: 
 	*/
 	
-	private static void checkWin(int column, int row){
+	private static int checkWin(int column, int row){
 		for(int i = 1;  i<4; i++){
 			if(board[column-1][i-1] != board[column-1][row-1]){
-				System.out.println("no win for column");
 				break;
 			}
 			else if (i==board.length){
-				System.out.println("win for column");
-				break;
+				return 1;
 			}
 		}
 
 		for(int i=1; i<4; i++){
 			if(board[i-1][row-1] != board[column-1][row-1]){
-				System.out.println("no win for row");
 				break;
 			}
 			else if (i==board.length){
-				System.out.println("win for row");
-				break;
+				return 2;
 			}
 		}
 
-        	if(row == column){
-           		for(int i = 1; i <4; i++){
-                		if(board[i-1][i-1] != board[column-1][row-1]){
-                  			System.out.println("no win for diagonal");
-                    			break;
-                		}
-               			else if(i-1 == WIDTH-1){
-                    			System.out.println("win for diagonal");
-                    			break;
-                		}
-            		}
+        //check diagonal
+		if(row == column){
+      		for(int i = 1; i <4; i++){
+             	if(board[i-1][i-1] != board[column-1][row-1]){
+					break;
+               	}
+            	else if(i-1 == WIDTH-1){
+					return 3;
+                }
         	}
+		}
 
-        	if((column-1) + (row-1) == (WIDTH-1)){
-            		for(int i = 1; i < 4; i++){
-                		if(board[i-1][(WIDTH-1)-(i-1)] != board[column-1][row-1]){
-                    			System.out.println("no win for anti-dia");
-                    			break;
-                		}
-               			else if(i == (WIDTH-1)){
-                    			System.out.println("win for anti-dia");
-                    			break;
-                		}
-            		}
-        	}
+        //check anti-diagonal
+		if((column-1) + (row-1) == (WIDTH-1)){
+            for(int i = 1; i < 4; i++){
+				if(board[i-1][(WIDTH-1)-(i-1)] != board[column-1][row-1]){
+					break;
+                }
+               	else if(i == (WIDTH-1)){
+					return 4;
+                }
+			}
+        }
 
-        	if(turn == 9){
-        		System.out.println("DRAW");
-        	}
-
+        //draw
+		if(turn == 9){
+			return 5;
+        }
+		
+		//Nobody's won
+		return 0;
+		
 	}
 	
 	/*
