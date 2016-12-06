@@ -6,14 +6,9 @@ outputs: if space is available
 */
 private static void CheckSpace(int column, int row)
 {
-		if(board[column-1][i-1] = '-')
-    {
-     continue;
-    }
-    //---------
-    else(board[column-1][i-1] != '-')
-    {
-     System.out.println("This is not a valid column.");
-    }
-    //---------
-	}
+	if(board[column-1][i-1] != '-')
+   	 {
+     	System.out.println("This is not a valid column.");
+    	}
+   
+}
