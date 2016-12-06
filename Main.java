@@ -25,7 +25,7 @@ public class Main{
 		setupBoard();
 		userInput();	
 		userInputToken(token);
-		for(int turn=1; turn<10; turn++{
+		for(int turn=1; turn<10; turn++){
 			userInputColumn();
 			userInputRow();
 			gameLogic(column,row,token);
@@ -110,12 +110,12 @@ public class Main{
 			// set of if else statments to determine based off of user's input when they are ready to play
 			if (response.equals("x")){
 				System.out.println("You selected token x");
-				token = 'x'
+				token = 'x';
 				letter=true;
 			}
 			else if(response.equals("o")) {
 				System.out.println("You selected token o");
-				token = 'o'
+				token = 'o';
 				letter=true;
 			}
 				else {
