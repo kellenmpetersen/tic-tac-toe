@@ -66,7 +66,7 @@ public class Main{
 		boolean flag = false;
 		
 		//prompting
-		System.out.println("Now that you know how to play, are you ready to begin? (yes or no)");
+		System.out.println("Are you ready to begin? (yes or no)");
 		Scanner input = new Scanner(System.in);
   
 		// while loop used to continue prompting user until they are ready to play
@@ -77,11 +77,11 @@ public class Main{
 				flag=true;
 			}
 			else if(response.equals("no")) {
-				System.out.println("enter 'yes' when you are ready to begin.");
+				System.out.println("Enter 'yes' when you are ready to begin.");
 				flag=false;
 			}
 			else {
-				System.out.println("that didn't work try entering 'yes' or 'no' ");
+				System.out.println("Try entering 'yes' or 'no'");
 				flag=false;
 			}
 		}
@@ -92,7 +92,7 @@ public class Main{
 		boolean letter = false;
 			
 		//prompting
-		System.out.println("Please choose a token, token x or token o");
+		System.out.println("Choose a token: ('x'or'o')");
 		Scanner input = new Scanner(System.in);
   
 		while(letter == false){
@@ -108,8 +108,8 @@ public class Main{
 				token = 'o';
 				letter=true;
 			}
-				else {
-				System.out.println("that didn't work try entering 'x' or 'o' ");
+			else {
+				System.out.println("Try entering 'x' or 'o' ");
 				letter=false;
 			}
 		}
@@ -122,7 +122,7 @@ public class Main{
 		
 		Scanner input = new Scanner(System.in);
 			
-		System.out.println("enter a column in which you would like to place your location (1-3)");
+		System.out.println("Enter a column (1-3)");
 		
 		while(flag == false){
 			while (!input.hasNextInt()) {
@@ -138,7 +138,7 @@ public class Main{
 				flag=true;
 			}
 			else  {
-				System.out.println("that's not a vaild column, try entering a number 1-3");
+				System.out.println("Not a vaild column, try (1-3)");
 				flag=false;
 			}
 		}
@@ -152,7 +152,7 @@ public class Main{
 		
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("enter a row in which you would like to place your location (1-3)");
+		System.out.println("Enter a row (1-3)");
 				
 		while(flag == false){
 			while (!input.hasNextInt()) {
@@ -168,7 +168,7 @@ public class Main{
 				flag=true;
 			}
 			else  {
-				System.out.println("that's not a vaild row, try entering a number 1-3");
+				System.out.println("Not a vaild row, try (1-3)");
 				flag=false;
 			}
 		}
