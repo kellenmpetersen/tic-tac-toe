@@ -15,6 +15,7 @@ public class Main{
 	private static char token = 'x';	
 	private static int turn = 0, win = 0;
 	private static boolean input = false;
+	private static String player = null;
 	
 	//board stores characters
 	static char[][]board = new char[WIDTH][HEIGHT];
@@ -30,14 +31,26 @@ public class Main{
 			while(input==false){
 				userInputColumn();
 				userInputRow();
-				checkSpace();
+				checkSpace(column,row);
 			}
 			gameLogic(column,row,token);
 			win = checkWin(column,row);
+			if (win>0){
+				player="You";
+				turn=10;
+			}
 			//gameAI(column,row);
-			//checkWin(column,row);
+			/*
+			win = checkWin(column,row);
+			if (win>0){
+				player="The AI";
+				turn=10;
+			}
+			*/
 			displayBoard();
+			input=false;
 		}
+		winMsg(player,win);
 	}
 	
 	/*
@@ -190,11 +203,11 @@ public class Main{
 	
 	private static void checkSpace(int column, int row){
 		if(board[column-1][row-1] == '-'){
-			input==true;
+			input=true;
 		}
 		else{
 			System.out.println("This space has already been selected!");
-			input==false;
+			input=false;
 		}
 	}
 		
@@ -303,6 +316,7 @@ public class Main{
 	Purpose: displays "board" array visually
 	Inputs: none
 	Outputs: "board" array
+	Returns: none
 	*/
 	
 	private static void displayBoard(){
@@ -312,5 +326,36 @@ public class Main{
 			}
 			System.out.println("");
 		}	
+	}
+	
+	/*
+	Author: KP
+	Purpose: displays win method
+	Inputs: win
+	Outputs: none
+	Returns: none
+	*/
+	
+	private static void winMsg(String player, int win){
+		switch (win) {
+            case 1:  
+				System.out.println(player+" won the game with 3-in-a-row!");
+                break;
+            case 2:  
+				System.out.println(player+" won the game with 3-in-a-column!");
+                break;
+            case 3:  
+				System.out.println(player+" won the game on a diagonal!");
+                break;
+            case 4:  
+				System.out.println(player+" won the game on a diagonal!");
+                break;
+            case 5:  
+				System.out.println("Cat's game...");
+                break;				
+            default: 
+				System.out.println("The program is broken!");
+                break;
+        }
 	}
 }
