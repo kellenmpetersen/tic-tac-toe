@@ -11,7 +11,7 @@ public class Main{
 	
 	private final static int WIDTH = 3;
 	private final static int HEIGHT = 3;
-	private static int column = 0, row = 0;
+	private static int row = 0, column = 0;
 	private static char token = 'x';	
 	private static int turn = 0, win = 0;
 	private static boolean input = false;
@@ -29,19 +29,19 @@ public class Main{
 		userInputToken(token);
 		for(int turn=1; turn<10; turn++){
 			while(input==false){
-				userInputColumn();
 				userInputRow();
-				checkSpace(column,row);
+				userInputColumn();
+				checkSpace(row,column);
 			}
-			gameLogic(column,row,token);
-			win = checkWin(column,row);
+			gameLogic(row,column,token);
+			win = checkWin(row,column);
 			if (win>0){
 				player="You";
 				turn=10;
 			}
-			//gameAI(column,row);
+			//gameAI(row,column);
 			/*
-			win = checkWin(column,row);
+			win = checkWin(row,column);
 			if (win>0){
 				player="The AI";
 				turn=10;
@@ -155,51 +155,14 @@ public class Main{
 	Outputs: none
 	Returns: none
 	*/
-	private static int userInputColumn(){
-		int iresponse;
-		boolean flag = false;
-		
-		Scanner input = new Scanner(System.in);
-			
-		System.out.println("Enter a column (1-3)");
-		
-		while(flag == false){
-			while (!input.hasNextInt()) {
-				//tell user to enter in an integer value, and give them a chance to do so. Repeat as many times as nessacary until they do.	
-				System.out.println("Enter an integer, please!");
-				input.nextLine();
-			}
-			
-			iresponse = input.nextInt();
-			
-			if (iresponse < 4 && iresponse > 0){
-				column = iresponse;
-				flag=true;
-			}
-			else  {
-				System.out.println("Not a vaild column, try (1-3)");
-				flag=false;
-			}
-		}
-		
-		return column;
-	}
-	
-	/*
-	Author: Jack de la Motte & Kellen Petersen 
-	Purpose: has user input row location
-	Inputs: none
-	Outputs: none
-	Returns: none
-	*/
 	private static int userInputRow(){
 		int iresponse;
 		boolean flag = false;
 		
 		Scanner input = new Scanner(System.in);
-		
+			
 		System.out.println("Enter a row (1-3)");
-				
+		
 		while(flag == false){
 			while (!input.hasNextInt()) {
 				//tell user to enter in an integer value, and give them a chance to do so. Repeat as many times as nessacary until they do.	
@@ -223,6 +186,43 @@ public class Main{
 	}
 	
 	/*
+	Author: Jack de la Motte & Kellen Petersen 
+	Purpose: has user input column location
+	Inputs: none
+	Outputs: none
+	Returns: none
+	*/
+	private static int userInputColumn(){
+		int iresponse;
+		boolean flag = false;
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Enter a column (1-3)");
+				
+		while(flag == false){
+			while (!input.hasNextInt()) {
+				//tell user to enter in an integer value, and give them a chance to do so. Repeat as many times as nessacary until they do.	
+				System.out.println("Enter an integer, please!");
+				input.nextLine();
+			}
+			
+			iresponse = input.nextInt();
+			
+			if (iresponse < 4 && iresponse > 0){
+				column = iresponse;
+				flag=true;
+			}
+			else  {
+				System.out.println("Not a vaild column, try (1-3)");
+				flag=false;
+			}
+		}
+		
+		return column;
+	}
+	
+	/*
 	Author: Jack de la Motte & Kellen Petersen
 	Purpose: checks to see if Space is filled
 	Inputs: column, row
@@ -230,8 +230,8 @@ public class Main{
 	Returns: none
 	*/
 	
-	private static void checkSpace(int column, int row){
-		if(board[column-1][row-1] == '-'){
+	private static void checkSpace(int row, int column){
+		if(board[row-1][column-1] == '-'){
 			input=true;
 		}
 		else{
@@ -263,8 +263,8 @@ public class Main{
 	Returns: none
 	*/
 	
-	private static void gameLogic(int column, int row, char token){
-		board[column-1][row-1]=token;
+	private static void gameLogic(int row, int column, char token){
+		board[row-1][column-1]=token;
 	}
 	
 	/*
@@ -287,9 +287,9 @@ public class Main{
 	Returns: 
 	*/
 	
-	private static int checkWin(int column, int row){
+	private static int checkWin(int row, int column){
 		for(int i = 1;  i<4; i++){
-			if(board[column-1][i-1] != board[column-1][row-1]){
+			if(board[row-1][i-1] != board[row-1][column-1]){
 				break;
 			}
 			else if (i==board.length){
@@ -298,7 +298,7 @@ public class Main{
 		}
 
 		for(int i=1; i<4; i++){
-			if(board[i-1][row-1] != board[column-1][row-1]){
+			if(board[i-1][column-1] != board[row-1][column-1]){
 				break;
 			}
 			else if (i==board.length){
@@ -307,9 +307,9 @@ public class Main{
 		}
 
         //check diagonal
-		if(row == column){
+		if(column == row){
       		for(int i = 1; i <4; i++){
-             	if(board[i-1][i-1] != board[column-1][row-1]){
+             	if(board[i-1][i-1] != board[row-1][column-1]){
 					break;
                	}
             	else if(i-1 == WIDTH-1){
@@ -319,9 +319,9 @@ public class Main{
 		}
 
         //check anti-diagonal
-		if((column-1) + (row-1) == (WIDTH-1)){
+		if((row-1) + (column-1) == (WIDTH-1)){
             for(int i = 1; i < 4; i++){
-				if(board[i-1][(WIDTH-1)-(i-1)] != board[column-1][row-1]){
+				if(board[i-1][(WIDTH-1)-(i-1)] != board[row-1][column-1]){
 					break;
                 }
                	else if(i == (WIDTH-1)){
