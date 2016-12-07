@@ -65,8 +65,11 @@ public class Main{
 		System.out.println("------------------------------");
 		System.out.println("Tic Tac Toe Game Rules:");
 		System.out.println("In order to win, you must connect 3 x's or o's vertically, horizontally, or diagonally.");
+		System.out.println();
 		System.out.println(" You, the user, are given the choice of 'X' or 'O' for your your symbol.");
+		System.out.println();
 		System.out.println("If you pick an invalid column, one that is full or non-existent you will be asked to pick a new column.");
+		System.out.println();
 		System.out.println("That's all, enjoy the game!");
 		System.out.println("------------------------------");
 	}
@@ -114,7 +117,7 @@ public class Main{
 	Purpose: has user choose token they want, X or O
 	Inputs: none
 	Outputs: none
-	Returns: none
+	Returns: what token the user chose
 	*/
 	private static void userInputToken(char token){
 		String response;
