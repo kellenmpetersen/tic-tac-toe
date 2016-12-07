@@ -1,6 +1,6 @@
 /* 
    name: TicTacToe
-   author: Pseupier Coders
+   author: Pseuperior Coders
    date: 11/22/16 - 12/7/16
    description: a simple game of tic-tac-toe
 */
@@ -54,10 +54,11 @@ public class Main{
 	}
 	
 	/*
-	Author: JC
+	Author: Jack Carr
 	Purpose: Prints Instructions
 	Inputs: none
 	Outputs: Instructions
+	returns: none
 	*/
 	
 	private static void gameRules(){
@@ -71,7 +72,7 @@ public class Main{
 	}
 	
 	/*
-	Author: JD
+	Author: Jack de la Motte
 	Purpose: Asks if user is ready to begin, if not ready, then waits.
 	Inputs: none
 	Outputs: none
@@ -94,16 +95,27 @@ public class Main{
 				flag=true;
 			}
 			else if(response.equals("no")) {
+				//program waits for user to be ready to begin
 				System.out.println("Enter 'yes' when you are ready to begin.");
+				// sets flag to false in order to run through loop again
 				flag=false;
 			}
 			else {
+				// if response is not yes or no, even accounts for integers and floats
 				System.out.println("Try entering 'yes' or 'no'");
+				// sets flag to false in order to run through loop again
 				flag=false;
 			}
 		}
 	}
 	
+	/*
+	Author: Jack Carr
+	Purpose: has user choose token they want, X or O
+	Inputs: none
+	Outputs: none
+	Returns: none
+	*/
 	private static void userInputToken(char token){
 		String response;
 		boolean letter = false;
@@ -132,7 +144,14 @@ public class Main{
 		}
 	}
 	
-
+	
+	/*
+	Author: Jack de la Motte & Kellen Petersen 
+	Purpose: has user input column location
+	Inputs: none
+	Outputs: none
+	Returns: none
+	*/
 	private static int userInputColumn(){
 		int iresponse;
 		boolean flag = false;
@@ -163,6 +182,13 @@ public class Main{
 		return column;
 	}
 	
+	/*
+	Author: Jack de la Motte & Kellen Petersen 
+	Purpose: has user input row location
+	Inputs: none
+	Outputs: none
+	Returns: none
+	*/
 	private static int userInputRow(){
 		int iresponse;
 		boolean flag = false;
@@ -194,7 +220,7 @@ public class Main{
 	}
 	
 	/*
-	Author: JD & KP
+	Author: Jack de la Motte & Kellen Petersen
 	Purpose: checks to see if Space is filled
 	Inputs: column, row
 	Outputs: input
@@ -212,7 +238,7 @@ public class Main{
 	}
 		
 	/*
-	Author: KP
+	Author: Kellen Petersen
 	Purpose: sets board with default parameters
 	Inputs: none
 	Outputs: none
@@ -227,7 +253,7 @@ public class Main{
 	}
 	
 	/*
-	Author: KP & JD
+	Author: Kellen Petersen & Jack de la Motte
 	Purpose: gameLogic
 	Inputs: column, row, token
 	Outputs: postion of players token
@@ -239,7 +265,7 @@ public class Main{
 	}
 	
 	/*
-	Author: JC & KP
+	Author: Jack Carr & Kellen Petersen
 	Purpose: gameAI trys to win
 	Inputs: turn
 	Outputs: gameAI column and row
@@ -251,7 +277,7 @@ public class Main{
 	}
 	
 	/*
-	Author: JC & KP
+	Author: Jack Carr & Kellen Petersen
 	Purpose: checksWin using last entered input
 	Inputs: none
 	Outputs: int of who won
@@ -312,7 +338,7 @@ public class Main{
 	}
 	
 	/*
-	Author: KP
+	Author: Kellen Petersen
 	Purpose: displays "board" array visually
 	Inputs: none
 	Outputs: "board" array
@@ -329,7 +355,7 @@ public class Main{
 	}
 	
 	/*
-	Author: KP
+	Author: Kellen Petersen
 	Purpose: displays win method
 	Inputs: win
 	Outputs: none
