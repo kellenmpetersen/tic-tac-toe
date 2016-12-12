@@ -275,10 +275,10 @@ public class Main{
 		if(turn % 2 == 1) //player turn
 		{
 			board[row-1][column-1]=token;
-			System.out.println("player turn " + token);
+			System.out.println("player 1's turn " + token);
 		} else {
 			board[row-1][column-1]=computerToken;
-				System.out.println("computer turn " + computerToken);
+				System.out.println("player 2's turn " + computerToken);
 		}
 	}
 	
