@@ -1,7 +1,7 @@
 /* 
    name: TicTacToe
    author: Pseuperior Coders
-   date: 11/22/16 - 12/7/16
+   date: 11/22/16 - 12/12/16
    description: a simple game of tic-tac-toe
 */
 
@@ -9,11 +9,11 @@ import java.util.Scanner;
 
 public class Main{
 	
-	private final static int WIDTH = 3;
-	private final static int HEIGHT = 3;
+	private final static int WIDTH = 3, HEIGHT = 3;
 	private static int row = 0, column = 0;
-	private static char token = 'x';	
-	private static int turn = 0, win = 0;
+	private static char token, computerToken;
+	private static int win = 0;
+	private static int turn1 = 0;
 	private static boolean input = false;
 	private static String player = null;
 	
@@ -21,32 +21,23 @@ public class Main{
 	static char[][]board = new char[WIDTH][HEIGHT];
 	
 	// the main method is the entry point for a program
-    	// inside methods the statements get executed in the order they appear in the code
+    // inside methods the statements get executed in the order they appear in the code
 	public static void main(String[] args){
 		gameRules();
 		setupBoard();
 		userInput();	
-		userInputToken(token);
+		userInputToken();
 		for(int turn=1; turn<10; turn++){
 			while(input==false){
 				userInputRow();
 				userInputColumn();
 				checkSpace(row,column);
 			}
-			gameLogic(row,column,token);
+			gameLogic(row, column, token, computerToken, turn);
 			win = checkWin(row,column);
 			if (win>0){
-				player="You";
 				turn=10;
 			}
-			//gameAI(row,column);
-			/*
-			win = checkWin(row,column);
-			if (win>0){
-				player="The AI";
-				turn=10;
-			}
-			*/
 			displayBoard();
 			input=false;
 		}
@@ -87,7 +78,7 @@ public class Main{
 		boolean flag = false;
 		
 		//prompting
-		System.out.println("Are you ready to begin? (yes or no)");
+		System.out.println("\nAre you ready to begin? (yes or no)");
 		Scanner input = new Scanner(System.in);
   
 		// while loop used to continue prompting user until they are ready to play
@@ -119,25 +110,30 @@ public class Main{
 	Outputs: none
 	Returns: what token the user chose
 	*/
-	private static void userInputToken(char token){
+	private static void userInputToken(){
 		String response;
 		boolean letter = false;
 			
 		//prompting
-		System.out.println("Choose a token: ('x'or'o')");
+		System.out.println("\nChoose a token: ('x'or'o')");
 		Scanner input = new Scanner(System.in);
   
 		while(letter == false){
 			response = input.nextLine();
 			// set of if else statments to determine based off of user's input when they are ready to play
 			if (response.equals("x")){
-				System.out.println("You selected token x");
+				System.out.println("\nPlayer1 selected token x");
+				System.out.println();
 				token = 'x';
+				System.out.println("Player2 will be token o");
+				computerToken = 'o';
 				letter=true;
 			}
 			else if(response.equals("o")) {
-				System.out.println("You selected token o");
+				System.out.println("\nPlayer1 selected token o");
 				token = 'o';
+				System.out.println("Player2 will be token x");
+				computerToken = 'x';
 				letter=true;
 			}
 			else {
@@ -161,7 +157,7 @@ public class Main{
 		
 		Scanner input = new Scanner(System.in);
 			
-		System.out.println("Enter a row (1-3)");
+		System.out.println("\nEnter a row (1-3)");
 		
 		while(flag == false){
 			while (!input.hasNextInt()) {
@@ -198,7 +194,7 @@ public class Main{
 		
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("Enter a column (1-3)");
+		System.out.println("\nEnter a column (1-3)");
 				
 		while(flag == false){
 			while (!input.hasNextInt()) {
@@ -263,20 +259,18 @@ public class Main{
 	Returns: none
 	*/
 	
-	private static void gameLogic(int row, int column, char token){
-		board[row-1][column-1]=token;
-	}
-	
-	/*
-	Author: Jack Carr & Kellen Petersen
-	Purpose: gameAI trys to win
-	Inputs: turn
-	Outputs: gameAI column and row
-	Returns: none
-	*/
-	
-	private static void gameAI(){
-		;
+	private static void gameLogic(int row, int column, char token, char computerToken, int turn)
+	{
+		if(turn % 2 == 1) //player turn
+		{
+			board[row-1][column-1]=token;
+			System.out.println("\nplayer 1's turn: " + "(" + token + ")\n");
+			player="player1";
+		} else {
+			board[row-1][column-1]=computerToken;
+			System.out.println("\nplayer 2's turn: " + "(" + computerToken + ")\n");
+			player="player2";
+		}
 	}
 	
 	/*
@@ -331,7 +325,7 @@ public class Main{
         }
 
         //draw
-		if(turn == 9){
+		if(turn1 == 9){
 			return 5;
         }
 		
